@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width'>
+    <title><%= title %></title>
+    <link rel='shortcut icon' href='<%= image_path('favicon.ico') %>'>
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary'>
+    <meta name='twitter:site' content='@3van'>
+    <meta name='twitter:creator' content='@3van'>
+    <meta name='twitter:title' content='Evan Lecklider'>
+    <meta name='twitter:description' content='All the whats.'>
+    <meta name='twitter:domain' content='http://lecklider.com'>
+
+    <!-- Libraries -->
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css'>
+
+    <!-- ours -->
+    <%= stylesheet_link_tag 'rouge', 'main' %>
+
+    <!-- the feeeeeeed -->
+    <%= feed_tag :atom, "#{ blog.options.prefix.to_s }/feed.xml", title: "Atom Feed" %>
+  </head>
+  <body class='<%= page_classes %>'>
+    <div class='header container'>
+      <h1 class='title'>
+        <a href='/'>Home</a>
+      </h1>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+
+    <footer class='container'>
+      <div class='half contact'>
+        <p>
+          <span itemprop='author' itemscope itemtype='http://schema.org/Person'>
+            <span itemprop='name'>
+              Evan Lecklider
+            </span>
+          </span>
+          <br>
+          <small>I write code and think about stuff.</small>
+          <br>
+          <small>
+            <%= link_to 'What the what?', 'wtw.html' %>
+          </small>
+          <br>
+          <small>
+            <%= link_to 'Atom Feed', "#{ blog.options.prefix.to_s }/feed.xml" %>
+          </small>
+        </p>
+      </div>
+      <div class='half last contact links'>
+        <p>
+          <small><a href='https://github.com/l3ck'>github.com/l3ck</a></small><br>
+          <small><a href='https://twitter.com/3van'>twitter.com/3van</a></small><br>
+          <small><a href="https://plus.google.com/+EvanLecklider?rel=author">+EvanLecklider</a></small>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3188744-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <%= javascript_include_tag 'bundle.js' %>
+
+    <a href='https://github.com/l3ck'>
+      <img style='position: absolute; top: 0; right: 0; border: 0;' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' alt='Fork me on GitHub'>
+    </a>
+  </body>
+</html>

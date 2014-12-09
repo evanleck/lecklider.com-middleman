@@ -1,0 +1,21 @@
+<% wrap_layout :layout do %>
+  <div itemscope itemtype='http://schema.org/Article'>
+    <div id='pattern'>
+      <div class='container'>
+        <h2 itemprop='name'><%= current_article.title %></h2>
+        <p>
+          <span itemprop='datePublished' content='<%= current_article.date.to_s %>'><%= current_article.date.strftime('%b %e %Y') %></span>
+          <% if current_article.tags.present? %>
+            in <%= current_article.tags.map { |tag| link_to tag, tag_path(tag) }.to_sentence %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+    <div itemprop='articleBody' class='container'>
+      <%= yield %>
+    </div>
+  </div>
+
+  <%= partial 'aside' %>
+<% end %>
