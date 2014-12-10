@@ -4,7 +4,7 @@ date: 2013-10-10
 tags: Nginx, WordPress, PHP, Cache
 ---
 
-WordPress is... interesting. It's sort of awesome and sort of The Worst<sup>&trade;</sup>. [PHP on its own certainly has its issues](http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/) but in particular, my experience with WordPress has been less than stellar because it is surprisingly fragile; its robustness and extensibility often lead to inscrutable errors and edge case bugs (third-party issues, but enabled by their systemic embrace); attempting to scale it at all efficiently quickly becomes a game of maintanence, optimization plugins, and indominable will; and as a matter of aesthetics, every WordPress blog looks like a fucking WordPress blog. Every. Oneofthem.
+WordPress is... interesting. It's sort of awesome and sort of The Worst<sup>&trade;</sup>. [PHP on its own certainly has its issues](http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/) but in particular, my experience with WordPress has been less than stellar because it is surprisingly fragile; its robustness and extensibility often lead to inscrutable errors and edge case bugs (third-party issues, but enabled by their systemic embrace); attempting to scale it at all efficiently quickly becomes a game of maintenance, optimization plug-ins, and indomitable will; and as a matter of aesthetics, every WordPress blog looks like a fucking WordPress blog. Every. Oneofthem.
 
 Nerdrage aside, having a nice GUI to work with and a quick way to slap a site together is valuable to a lot of people and companies. The savings involved probably outweigh the groans and grumbles of the developers who put the site together because ultimately, when the client needs to update the site, they can. So we charge on...
 
