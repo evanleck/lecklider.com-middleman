@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function(ev) {
       list    = document.getElementById('post-list');
 
   if (pattern) {
-    var title   = document.title,
-        geo_pattern = GeoPattern.generate(title);
+    var title  = document.title,
+        geopat = GeoPattern.generate(title);
 
     /* set that pattern */
-    pattern.style.backgroundImage = geo_pattern.toDataUrl();
+    pattern.style.backgroundImage = geopat.toDataUrl();
   };
 
   if (lemon) {
