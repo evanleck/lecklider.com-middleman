@@ -36,17 +36,23 @@ end
 page '/feed.xml', layout: false
 page 'CNAME', layout: false
 
-# Reload the browser automatically whenever files change
-activate :livereload
+# Reload the browser automatically whenever files change in dev
+configure :development do
+  activate :livereload
+end
+
+# bust that cache!
 activate :cache_buster
 
 # syntax highlighting
 activate :syntax, :line_numbers => true
 
 # minify all the things!
-activate :minify_css
-activate :minify_javascript
-activate :minify_html
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+  activate :minify_html
+end
 
 # deploy via GitHub pages
 activate :deploy do |deploy|
