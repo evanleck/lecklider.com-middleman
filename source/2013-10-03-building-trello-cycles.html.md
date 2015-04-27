@@ -12,7 +12,7 @@ Seeing as how [Trello](https://trello.com)'s API is damn robust and they have a 
 The webapp generator for Yeoman is pretty sweet: it scaffolds out some basic JS, CSS, and HTML; sets up [Grunt](http://gruntjs.com) tasks for local testing with live reload and building to a destination folder; and has support for CoffeeScript, HTML5 Boilerplate, Twitter Bootstrap, and RequireJS.
 
 ### Grunt the Fuck?
-Maybe I'm just not hip to the new JS jazz, but Gruntfiles make no fucking sense to me. Check out the [auto-generated Gruntfile.js for Trello Cycles](https://github.com/l3ck/trello-cycles/blob/master/Gruntfile.js) and the [Rakefile for my Sinatra Boilerplate project](https://github.com/l3ck/sinatra-boilerplate/blob/master/Rakefile). Both will build assets and run a development server (I realize there isn't perfect feature parity so an apples-to-apples comparison is impossible, what I'm digging at here isn't a functionality comparison) but I find the former damn near inscrutable and the latter generally more legible. It's a minor thing. Sort of.
+Maybe I'm just not hip to the new JS jazz, but Gruntfiles make no fucking sense to me. Check out the [auto-generated Gruntfile.js for Trello Cycles](https://github.com/evanleck/trello-cycles/blob/master/Gruntfile.js) and the [Rakefile for my Sinatra Boilerplate project](https://github.com/evanleck/sinatra-boilerplate/blob/master/Rakefile). Both will build assets and run a development server (I realize there isn't perfect feature parity so an apples-to-apples comparison is impossible, what I'm digging at here isn't a functionality comparison) but I find the former damn near inscrutable and the latter generally more legible. It's a minor thing. Sort of.
 
 
 ## Statistics in JavaScript
@@ -72,7 +72,7 @@ if "function" isnt typeof Array::median
 
 # sum
 # depends on Array.prototype.reduce to work properly.
-# shim for that available here https://gist.github.com/l3ck/6418510
+# shim for that available here https://gist.github.com/evanleck/6418510
 if "function" isnt typeof Array::sum
   Array::sum = ->
     "use strict"
