@@ -24,6 +24,11 @@ set :css_dir,    'styles'
 set :js_dir,     'scripts'
 set :images_dir, 'images'
 
+# autoprefix the business
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions']
+end
+
 # blog blog blog
 activate :blog do |blog|
   blog.permalink         = '{year}/{month}/{title}.html'
@@ -41,17 +46,18 @@ configure :development do
   activate :livereload
 end
 
-# bust that cache!
-activate :cache_buster
-
 # syntax highlighting
 activate :syntax, :line_numbers => true
 
 # minify all the things!
 configure :build do
+  activate :asset_hash
+  activate :gzip
   activate :minify_css
   activate :minify_javascript
-  activate :minify_html
+  activate :minify_html do |html|
+    html.simple_doctype = true
+  end
 end
 
 # deploy via GitHub pages

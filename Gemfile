@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'middleman'
+gem 'middleman-autoprefixer'
 gem 'middleman-blog'
 gem 'middleman-deploy'
-gem 'middleman-syntax'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
+gem 'middleman-syntax'
 
 gem 'susy'
 gem 'nokogiri'
