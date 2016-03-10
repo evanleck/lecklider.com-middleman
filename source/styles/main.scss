@@ -1,39 +1,58 @@
 $black: #292724;
 $red: #a00;
+$grid-breakpoint: 50rem;
+$container-width: 30rem;
+$link-color: #0000EE;
 
 @import 'susy';
 
-html, body { min-height: 100%; }
-body {
-  color: $black;
-  font: 22px Lora, serif;
+@mixin at-least($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content
+  }
 }
 
-code, pre { font-family: 'Ubuntu Mono', monospace; }
+@mixin until($device-width) {
+  @media screen and (max-width: $device-width) {
+    @content
+  }
+}
+
+html, body {
+  color: $black;
+  font: 22px/1.6 Lora, serif;
+  min-height: 100%;
+}
 
 a {
-  color: $red;
+  color: $link-color;
 
-  // &:visited { color: lighten($red, 10%); text-decoration: none; }
-  &:hover   { color: darken($red, 20%); }
+  &:visited { color: darken($link-color, 15%); }
+  &:hover   { color: darken($link-color, 5%); }
 }
 
-[itemprop=articleBody] img {
-  display: block;
-  margin: 30px auto 100px;
-  padding: 3px;
-  width: 100%;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  @include container;
+
+  margin: 0.5rem auto 0;
+  max-width: $container-width;
+  padding: 0 1rem;
 }
 
 /* index */
 #post-list {
   list-style-type: none;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
   padding: 0;
 
   li {
-    line-height: 1.75em;
-    margin-bottom: 0.25em;
+    line-height: 1.75rem;
+    margin-bottom: 0.25rem;
+    position: relative;
   }
 
   a {
@@ -44,61 +63,38 @@ a {
     }
   }
 
-  small {
-    color: #777;
-    line-height: 1.2em;
-  }
-
   .date {
     color: #aaa;
     display: inline-block;
-    font-family: 'Ubuntu Mono', monospace;
-    min-width: 3em;
   }
 
   .pattern {
     background-color: #777;
-    border-radius: 1em;
+    border-radius: .1rem;
     border: 1px solid rgba($black, 0.3);
     display: inline-block;
-    margin-right: 0.5em;
-    min-height: 1em;
-    min-width: 1em;
+    margin-right: .5rem;
+    min-height: 1rem;
+    min-width: 1rem;
     position: relative;
-    top: 0.2em;
+    top: 0.15rem;
   }
 }
 
-.container {
-  @include container;
-
-  margin: 0.5em auto 0;
-  padding: 0 1em;
-  max-width: 30em;
-}
-
-.header {
+header {
   a {
-    text-decoration: none;
-  }
-
-  h1 {
     display: inline-block;
-    font-size: 100%;
-    font-weight: normal;
+    background: rgba(white, 0.6);
+    border-radius: 3px;
+    color: $black;
+    padding: 0.25em 0.5em;
     margin-bottom: 2em;
+    text-decoration: none;
 
-    a {
-      background: rgba(white, 0.6);
-      border-radius: 3px;
-      color: $red;
-      padding: 0.25em 0.5em;
-
-      &:hover { color: darken($red, 10%); text-decoration: underline; }
-      &.extra {
-        color: #aaa;
-        margin-left: 1em;
-      }
+    &:visited { color: $black; }
+    &:hover {
+      color: #000;
+      text-decoration: underline;
     }
   }
 }
@@ -110,18 +106,24 @@ a {
 footer {
   border-top: 4px solid #eee;
   color: #555;
-  margin-top: 2em;
+  margin-top: 2rem;
   overflow: hidden;
-  padding-bottom: 6em;
+  padding-bottom: 6rem;
 
   p {
-    font-size: .7em;
-    line-height: 1.5em;
+    font-size: .7rem;
   }
 
   .contact {
-    small { line-height: 15px; }
-    a { color: #8085C1; }
+    small {
+      line-height: .7rem;
+    }
+  }
+
+  @include at-least($grid-breakpoint) {
+    .links {
+      text-align: right;
+    }
   }
 }
 
@@ -129,33 +131,50 @@ footer {
 /* posts */
 /* standard */
 [itemprop=articleBody] {
-  line-height: 1.6em;
-  text-align: justify;
-
-  a {
-    background: rgba($red, .07);
-    border-radius: .1em;
-    margin: 0 -.2em;
-    padding: 0 .2em;
-    text-decoration: none;
-
-    &:visited { background: none; text-decoration: none; }
-    &:hover {
-      text-decoration: underline;
-    }
+  img {
+    display: block;
+    margin: 1.5rem auto 3rem;
+    max-width: 100%;
+    padding: .3rem;
   }
 
-  code { background-color: #F8F8F8; }
+  code {
+    background-color: #F8F8F8; // From Rouge
+  }
+
   .highlight {
-    font-size: 0.9em;
-    line-height: 1.5em;
-    margin: 1em -1em;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    margin: 1rem -1rem;
     overflow: auto;
-    padding: 1em;
+    padding: .5rem;
+
+    @include at-least($grid-breakpoint) {
+      margin: 1rem -.5rem;
+    }
 
     .lineno {
       color: #ccc;
     }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 2rem;
+    transition: all 0.2s;
+
+    @include at-least($grid-breakpoint) {
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin: 3rem -.25rem .5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 -.5rem;
+    transition: all 0.2s;
   }
 
   ul, ol {
@@ -164,17 +183,6 @@ footer {
 
   pre code {
     border: none;
-  }
-
-  /* terminal */
-  pre.terminal {
-    border: 1px solid #000;
-    background-color: #333;
-    color: #FFF;
-  }
-
-  pre.terminal code {
-    background-color: #333;
   }
 }
 
@@ -185,12 +193,18 @@ footer {
   padding: 5em 0 2em;
   text-shadow: rgba($black, 0.2) 1px 1px 1px;
 
-  h2 {
+  h1 {
     color: white;
-    font-size: 2em;
-    line-height: 1.125em;
-    margin: 0 0 0.25em;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin: 0 0 0.25rem;
     transition: all 0.2s;
+
+    @include at-least($grid-breakpoint) {
+      font-size: 3rem;
+      line-height: 3.3rem;
+      margin: 0 -0.5rem 0.25rem;
+    }
   }
   p {
     color: rgba(#eee, .7);
@@ -198,23 +212,15 @@ footer {
 
     a, [itemprop=datePublished] {
       color: rgba(#fff, .8);
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }
 
-@media (min-width: 50em) {
-  #pattern {
-    h2 {
-      font-size: 3em;
-      margin: 0 -0.5em 0.25em;
-    }
-  }
-
-  [itemprop=articleBody] h2 {
-    font-size: 2em;
-    margin: 1.5em -0.25em 0.5em;
-  }
-
+@media (min-width: 50rem) {
   .half {
     @include span(1 of 2);
 
@@ -229,15 +235,11 @@ footer {
 }
 
 aside.container {
-  color: #555;
-  font-size: 0.9em;
-  margin-top: 6em;
+  color: #777;
+  font-size: 0.8rem;
+  margin-top: 3rem;
 
   h4 {
-    color: #333;
-  }
-
-  a {
-    color: desaturate($red, 20%);
+    color: #555;
   }
 }

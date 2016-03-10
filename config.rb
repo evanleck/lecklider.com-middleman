@@ -17,7 +17,7 @@ end
 
 # markdown options
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown, fenced_code_blocks: true, smartypants: true
 
 # dirs
 set :css_dir,    'styles'
@@ -47,7 +47,7 @@ configure :development do
 end
 
 # syntax highlighting
-activate :syntax, :line_numbers => true
+activate :syntax, line_numbers: true
 
 # minify all the things!
 configure :build do

@@ -16,6 +16,7 @@
 
     <!-- Libraries -->
     <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' type='text/css' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'>
 
@@ -26,11 +27,9 @@
     <%= feed_tag :atom, "#{ blog.options.prefix.to_s }/feed.xml", title: "Atom Feed" %>
   </head>
   <body class='<%= page_classes %>'>
-    <div class='header container'>
-      <h1 class='title'>
-        <a href='/'>Home</a>
-      </h1>
-    </div>
+    <header class='container'>
+      <a href='/' class='home'>Home</a>
+    </header>
     <div>
       <%= yield %>
     </div>

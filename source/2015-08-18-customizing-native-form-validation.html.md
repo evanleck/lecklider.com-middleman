@@ -172,10 +172,6 @@ var validateForm = function(submitEvent) {
 };
 ```
 
-And here's a working version with the HTML, CSS, and JavaScript all tied together.
-
-<a class="jsbin-embed" href="http://jsbin.com/hasiwezeme/embed?output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.34.2"></script>
-
 ## BONUS!
 
 If you want to override the `validationMessage` and unify it across all browsers, why not try something like this:
