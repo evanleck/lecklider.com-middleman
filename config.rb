@@ -46,10 +46,10 @@ configure :development do
   activate :livereload
 end
 
-# syntax highlighting
+# Used for our in-page syntax highlighting.
 activate :syntax, line_numbers: true
 
-# minify all the things!
+# Minify and hash all the things!
 configure :build do
   activate :asset_hash
   activate :gzip
@@ -60,7 +60,7 @@ configure :build do
   end
 end
 
-# deploy via GitHub pages
+# Deploy via GitHub pages.
 activate :deploy do |deploy|
   deploy.build_before = true
   deploy.method       = :git
