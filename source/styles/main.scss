@@ -220,7 +220,7 @@ footer {
   }
 }
 
-@media (min-width: 50rem) {
+@include at-least($grid-breakpoint) {
   .half {
     @include span(1 of 2);
 
