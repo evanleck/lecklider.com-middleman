@@ -1,10 +1,17 @@
 ---
 title: "Code and Musings"
 ---
+<div id='post-header' data-pattern='Evan Lecklider'>
+  <div class='container'>
+    <h1>Evan Lecklider</h1>
+    <p>Code and Musings</p>
+  </div>
+</div>
 <div class='container'>
   <ul class='posts' id='post-list'>
     <% blog.articles.each do |article| %>
       <li>
+        <span data-pattern='<%= article.title %> | Evan Lecklider'></span>
         <%= link_to article.title, article %>
         <span class='date'>
           <%= article.date.strftime('%b %d, %Y') %>
