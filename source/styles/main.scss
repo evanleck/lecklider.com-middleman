@@ -128,9 +128,20 @@ footer {
 }
 
 
-/* posts */
-/* standard */
 [itemprop=articleBody] {
+  p:first-child {
+    clear: both;
+
+    &:first-letter {
+      float: left;
+      font-size: 3.5rem;
+      padding: 0 .5rem .25rem 0;
+      position: relative;
+      top: .25rem;
+      // font-family: 'Lato', sans-serif;
+    }
+  }
+
   img {
     display: block;
     margin: 1.5rem auto 3rem;
