@@ -8,13 +8,13 @@ $link-color: #0000EE;
 
 @mixin at-least($device-width) {
   @media screen and (min-width: $device-width) {
-    @content
+    @content;
   }
 }
 
 @mixin until($device-width) {
   @media screen and (max-width: $device-width) {
-    @content
+    @content;
   }
 }
 
@@ -134,11 +134,10 @@ footer {
 
     &:first-letter {
       float: left;
-      font-size: 3.5rem;
-      padding: 0 .5rem .25rem 0;
+      font-size: 4.5rem;
+      line-height: 1em;
+      padding: 0 1rem 0 0;
       position: relative;
-      top: .25rem;
-      // font-family: 'Lato', sans-serif;
     }
   }
 
