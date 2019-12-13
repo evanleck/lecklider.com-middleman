@@ -18,10 +18,18 @@ $link-color: #0000EE;
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html, body {
   color: $black;
-  font: 22px/1.6 Lora, serif;
-  min-height: 100%;
+  font: 22px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -29,10 +37,6 @@ a {
 
   &:visited { color: darken($link-color, 15%); }
   &:hover   { color: darken($link-color, 5%); }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -82,6 +86,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
   a {
     display: inline-block;
     background: rgba(white, 0.6);
@@ -152,7 +161,7 @@ footer {
     background-color: #F8F8F8; // From Rouge
   }
 
-  .highlight {
+  div.highlight {
     font-size: 0.7rem;
     line-height: 1rem;
     margin: 1rem -1rem;
@@ -165,6 +174,10 @@ footer {
 
     .lineno {
       color: #ccc;
+    }
+
+    pre {
+      margin: 0;
     }
   }
 
@@ -198,27 +211,28 @@ footer {
 
 #post-header {
   background-color: #777;
-  box-shadow: rgba($black, 0.4) 1px 1px 15px inset, rgba($black, 0.4) -1px -1px 15px inset;
-  margin-top: -5em;
-  padding: 5em 0 2em;
-  text-shadow: rgba($black, 0.2) 1px 1px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh;
+  padding: 5em 3rem 2em 1rem;
+
+  .container {
+    max-width: 100%;
+  }
 
   h1 {
     color: white;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 5rem;
+    line-height: 5rem;
     margin: 0 0 0.25rem;
-    transition: all 0.2s;
-
-    @include at-least($grid-breakpoint) {
-      font-size: 3rem;
-      line-height: 3.3rem;
-      margin: 0 -0.5rem 0.25rem;
-    }
+    text-shadow: rgba($black, 0.3) 2px 2px 0;
   }
+
   p {
     color: rgba(#eee, .7);
-    margin: 0;
+    margin: 1rem 0 0 1rem;
+    text-shadow: rgba($black, 0.2) 1px 1px 0;
 
     a, [itemprop=datePublished] {
       color: rgba(#fff, .8);

@@ -1,14 +1,24 @@
-//= require geopattern.min.js
+// https://stackoverflow.com/a/16348977
+function stringToColour(string) {
+  var hash = 0;
 
-document.addEventListener('DOMContentLoaded', function(ev) {
-  /* check for some nodes we might care about */
-  var patterns = document.querySelectorAll('[data-pattern]');
-
-  for (var patternIndex = patterns.length - 1; patternIndex >= 0; patternIndex--) {
-    var element = patterns[patternIndex],
-        pattern = element.getAttribute('data-pattern'),
-        geopat = GeoPattern.generate(pattern);
-
-    element.style.backgroundImage = geopat.toDataUrl();
+  for (var i = 0; i < string.length; i++) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
+  var colour = '#';
+  for (var i = 0; i < 3; i++) {
+    var value = (hash >> (i * 8)) & 0xFF;
+    colour += ('00' + value.toString(16)).substr(-2);
+  }
+
+  return colour;
+}
+
+document.addEventListener('DOMContentLoaded', _ => {
+  /* check for some nodes we might care about */
+  Array.from(document.querySelectorAll('[data-pattern]')).forEach(element => {
+    const pattern = element.getAttribute('data-pattern');
+
+    element.style.backgroundColor = stringToColour(pattern)
+  });
 });

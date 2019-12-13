@@ -1,38 +1,27 @@
 <!doctype html>
-<html>
+<html lang='en-US'>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <meta name='viewport' content='width=device-width'>
     <title><%= title %></title>
     <link rel='shortcut icon' href='<%= image_path('favicon.ico') %>'>
-    <!-- Twitter -->
     <meta name='twitter:card' content='summary'>
     <meta name='twitter:site' content='@evanleck'>
     <meta name='twitter:creator' content='@evanleck'>
     <meta name='twitter:title' content='Evan Lecklider'>
     <meta name='twitter:description' content='Code and Musings'>
     <meta name='twitter:domain' content='http://lecklider.com'>
-
-    <!-- Libraries -->
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'>
-
-    <!-- ours -->
     <%= stylesheet_link_tag 'rouge', 'main' %>
-
-    <!-- the feeeeeeed -->
     <%= feed_tag :atom, "#{ blog.options.prefix.to_s }/feed.xml", title: "Atom Feed" %>
   </head>
   <body class='<%= page_classes %>'>
     <header class='container'>
       <a href='/' class='home'>Home</a>
     </header>
-    <div>
+    <main>
       <%= yield %>
-    </div>
+    </main>
 
     <footer class='container'>
       <div class='half contact'>
