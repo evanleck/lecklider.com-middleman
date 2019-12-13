@@ -14,9 +14,9 @@ function stringToColour(string) {
   return colour;
 }
 
-document.addEventListener('DOMContentLoaded', _ => {
+document.addEventListener('DOMContentLoaded', function(_) {
   /* check for some nodes we might care about */
-  Array.from(document.querySelectorAll('[data-pattern]')).forEach(element => {
+  Array.from(document.querySelectorAll('[data-pattern]')).forEach(function(element) {
     const pattern = element.getAttribute('data-pattern');
 
     element.style.backgroundColor = stringToColour(pattern)
